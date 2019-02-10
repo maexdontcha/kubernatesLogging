@@ -1,0 +1,29 @@
+# kind: PersistentVolume
+# apiVersion: v1
+# metadata:
+#   name: logging-pv-volume
+#   namespace: openfaas-logging
+#   labels:
+#     type: local
+#     app: logging
+# spec:
+#   capacity:
+#     storage: 5Gi
+#   accessModes:
+#     - ReadWriteMany
+#   hostPath:
+#     path: '/mnt/data'
+# ---
+# kind: PersistentVolumeClaim
+# apiVersion: v1
+# metadata:
+#   name: logging-pv-claim
+#   namespace: openfaas-logging
+#   labels:
+#     app: logging
+# spec:
+#   accessModes:
+#     - ReadWriteMany
+#   resources:
+#     requests:
+#       storage: 5Gi

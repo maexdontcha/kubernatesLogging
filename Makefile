@@ -1,4 +1,4 @@
-.PHONY : build clear build-namespaces reate-cluster
+.PHONY : build clear build-namespaces create-cluster
 
 build : | build-namespaces create-cluster
 

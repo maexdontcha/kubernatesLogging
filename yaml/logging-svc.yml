@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+  namespace: openfaas-logging
+  labels:
+    run: rabbitmq
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      nodePort: 30002
+      port: 15672
+      targetPort: 15672
+      protocol: TCP
+    - name: amqp
+      nodePort: 30003
+      targetPort: 5672
+      port: 5672
+      protocol: TCP
+    - name: epmd
+      port: 4369
+    - name: dist-port
+      port: 25672
+  selector:
+    run: rabbitmq

@@ -2,7 +2,8 @@
 
 var amqp = require('amqplib/callback_api')
 
-amqp.connect('amqp://localhost', function(err, conn) {
+amqp.connect('amqp://localhost:30003', function(err, conn) {
+  if (err) console.log(err)
   conn.createChannel(function(err, ch) {
     var q = 'logging_queue'
     var msg = { durable: 'world', xxxx: 'wasup' }

@@ -1,0 +1,9 @@
+
+
+
+kubectl get deployments --all-namespaces
+kubectl get pods --all-namespaces
+kubectl delete -n openfaas-logging deployment logging
+
+
+kubectl delete svc logging-service
